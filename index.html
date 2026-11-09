@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f4f1" />
+  <title>Fable — Visual novel studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Fable home"><span class="brand-mark">f</span><span>fable</span></a>
+    <div class="project-name"><span class="crumb">My projects</span><span class="slash">/</span><strong id="projectTitle">The Last Train</strong><span class="saved-dot" title="All changes saved"></span></div>
+    <div class="top-actions"><span class="save-state" id="saveState">All changes saved</span><button class="icon-btn" id="undoBtn" title="Undo" aria-label="Undo">↶</button><button class="icon-btn" id="redoBtn" title="Redo" aria-label="Redo">↷</button><span class="top-divider"></span><button class="button button-quiet" id="shareBtn"><span>↗</span> Share</button><button class="button button-dark" id="exportBtn"><span>↓</span> Export</button><button class="avatar" title="Your account">M</button></div>
+  </header>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="workspace-label">WORKSPACE <button class="tiny-plus" id="newProjectBtn" title="New project">+</button></div>
+      <div class="project-card"><div class="project-thumb"><span>✦</span><span class="thumb-moon"></span></div><div class="project-card-copy"><strong id="sideTitle">The Last Train</strong><span>Story · Updated just now</span></div><button class="dots" aria-label="Project options">···</button></div>
+      <div class="side-section-label">BUILD</div>
+      <button class="nav-item active" data-tab="story"><span class="nav-icon">▤</span> Story <span class="count" id="chapterCount">4</span></button>
+      <button class="nav-item" data-tab="characters"><span class="nav-icon">♙</span> Characters <span class="count" id="characterCount">2</span></button>
+      <button class="nav-item" data-tab="assets"><span class="nav-icon">▧</span> Assets <span class="count">6</span></button>
+      <div class="side-section-label tools-label">TOOLS</div>
+      <button class="nav-item" id="settingsNav"><span class="nav-icon">⚙</span> Project settings</button>
+      <div class="sidebar-bottom"><div class="tip-card"><span class="tip-icon">✦</span><div><strong>Make it yours</strong><p>Every great story starts with a single scene.</p><button id="tipButton">Explore the guide <span>→</span></button></div></div><div class="user-row"><div class="avatar small">M</div><div class="user-copy"><strong>Morgan Lee</strong><span>Free plan</span></div><button class="dots" aria-label="Account menu">···</button></div></div>
+    </aside>
+    <section class="main-area">
+      <div class="page-heading"><div><div class="eyebrow">STORY EDITOR <span class="live-pill"><i></i> Draft</span></div><h1>Your story, <em>in motion.</em></h1><p>Build a world one scene at a time.</p></div><button class="button button-outline" id="addSceneTop"><span>＋</span> New scene</button></div>
+      <div class="editor-layout">
+        <section class="scene-panel panel"><div class="panel-head"><div><div class="section-overline">CHAPTER 01 <span class="chapter-dot">·</span> <span id="sceneTotal">4 SCENES</span></div><h2>After the rain</h2></div><button class="dots dark-dots" aria-label="Chapter options">···</button></div>
+          <div class="scene-list" id="sceneList"></div>
+          <button class="add-scene-row" id="addScene"><span>＋</span> Add a scene</button>
+          <div class="scene-panel-foot"><span class="tiny-line"></span><span>END OF CHAPTER</span></div>
+        </section>
+        <section class="workspace panel"><div class="workspace-toolbar"><div class="mode-switch"><button class="mode active" id="editMode">✎ <span>Edit</span></button><button class="mode" id="playMode">▶ <span>Preview</span></button></div><div class="preview-controls"><span class="ratio-select">▭ &nbsp; 16:9 <span>⌄</span></span><span class="control-divider"></span><button class="icon-btn small-icon" title="Zoom out" id="zoomOut">−</button><span class="zoom-label" id="zoomLabel">100%</span><button class="icon-btn small-icon" title="Zoom in" id="zoomIn">＋</button><button class="icon-btn small-icon fullscreen-btn" id="fullscreenBtn" title="Fullscreen">⛶</button></div></div>
+          <div class="preview-stage"><div class="vn-screen" id="vnScreen"><div class="scene-bg bg-station" id="sceneBg"><div class="sky-glow"></div><div class="moon"></div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div><div class="station-roof"></div><div class="station-wall"></div><div class="station-window w1"></div><div class="station-window w2"></div><div class="station-window w3"></div><div class="platform"></div><div class="platform-edge"></div><div class="rail rail-one"></div><div class="rail rail-two"></div><div class="lamp lamp-one"><i></i></div><div class="lamp lamp-two"><i></i></div><div class="scene-grain"></div></div><div class="character char-left" id="charLeft"><div class="char-hair"></div><div class="char-head"><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="mouth"></i></div><div class="char-neck"></div><div class="char-body"><span class="collar"></span></div></div><div class="character char-right" id="charRight"><div class="char-hair"></div><div class="char-head"><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="mouth"></i></div><div class="char-neck"></div><div class="char-body"><span class="collar"></span></div></div><div class="choice-overlay" id="choiceOverlay"></div><div class="dialogue-box" id="dialogueBox"><div class="speaker-tag" id="speakerTag">MIRA</div><div class="dialogue-text" id="dialogueText">The last train always sounds lonelier in the rain.</div><div class="dialogue-bottom"><span id="lineNumber">01 <i>/</i> 08</span><span class="continue-hint" id="continueHint">CLICK TO CONTINUE <b>⌄</b></span></div></div><div class="screen-shade"></div></div></div>
+          <div class="workspace-footer"><div class="status-left"><span class="green-status"></span><span id="previewStatus">Preview ready</span><span class="footer-dot">·</span><span>Autosaved</span></div><div class="keyboard-hint"><kbd>Space</kbd> to advance <span class="footer-dot">·</span> <kbd>Esc</kbd> to exit</div></div>
+        </section>
+        <section class="inspector panel"><div class="inspector-head"><div><span class="section-overline">SCENE SETTINGS</span><h2 id="inspectorTitle">Scene 01</h2></div><button class="dots dark-dots" aria-label="Scene options">···</button></div><div class="inspector-content"><label class="field-label" for="sceneName">Scene name</label><input class="text-input" id="sceneName" value="Platform at midnight" maxlength="42"><div class="field-block"><div class="field-label">Background <button class="text-link" id="browseBg">Browse assets</button></div><div class="asset-choice" id="bgChoice"><span class="asset-preview station-preview"><i></i></span><span><strong id="bgName">Rainy station</strong><small>Illustration · 1920 × 1080</small></span><span class="chevron">⌄</span></div><div class="bg-options" id="bgOptions"><button data-bg="station">✦ &nbsp; Rainy station</button><button data-bg="cafe">☕ &nbsp; Little café</button><button data-bg="garden">✿ &nbsp; Moon garden</button></div></div><div class="field-block"><div class="field-label">Characters <button class="text-link" id="addCharacter">＋ Add</button></div><div class="character-row"><div class="person-badge mira">M</div><span><strong>Mira</strong><small>Thoughtful · Left</small></span><button class="chevron char-toggle" data-target="charLeft">⌄</button></div><div class="character-row"><div class="person-badge ren">R</div><span><strong>Ren</strong><small>Reserved · Right</small></span><button class="chevron char-toggle" data-target="charRight">⌄</button></div></div><div class="field-block dialogue-field"><div class="field-label">Dialogue <span class="field-sub">LINE <b id="fieldLineNumber">01</b></span></div><div class="speaker-select-wrap"><select class="select-input" id="speakerSelect"><option>Mira</option><option>Ren</option><option>Narrator</option></select><span class="select-arrow">⌄</span></div><textarea class="text-area" id="dialogueInput" rows="3" maxlength="220">The last train always sounds lonelier in the rain.</textarea><div class="textarea-foot"><span id="charCountText">55 / 220</span><button class="text-link" id="addChoice">＋ Add choice</button></div></div><div class="choices-config" id="choicesConfig"></div><div class="inspector-actions"><button class="button button-outline full-button" id="duplicateScene">▣ &nbsp; Duplicate scene</button><button class="delete-scene" id="deleteScene">Delete scene</button></div></div></section>
+      </div>
+      <div class="bottom-note"><span>✦</span> Tip: Use choices to let your readers shape the story. <button id="choiceTip">Learn more <b>→</b></button></div>
+    </section>
+  </main>
+  <div class="toast" id="toast"></div><div class="modal-backdrop" id="modalBackdrop"><div class="modal"><button class="modal-close" id="modalClose">×</button><div class="modal-icon">✦</div><div id="modalContent"></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
